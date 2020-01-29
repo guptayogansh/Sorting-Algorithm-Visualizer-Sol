@@ -202,6 +202,36 @@ def quick_sort(nums):  # n^2
             # If an element at i (on the left of the pivot) is larger than the
             # element at j (on right right of the pivot), then swap them
             nums.swap(j, i)
+    # Python program for implementation of Shell Sort 
+
+def shellSort(nums): 
+
+	# Start with a big gap and then reduce it
+	n = nums.get_len()
+	gap = n/2
+
+	# Do a gapped insertion sort for this gap size. 
+	# The first gap elements nums[0..gap-1] are already in gapped 
+	# order. Keep adding one more element until the entire array 
+	# is gap sorted 
+	while gap > 0: 
+
+		for i in range(gap,n): 
+
+			# add nums[i] to the elements that have been gap sorted 
+			# save nums[i] in temp and make a hole at position i 
+			temp = nums[i] 
+
+			# shift earlier gap-sorted elements up until the correct 
+			# location for nums[i] is found 
+			j = i 
+			while j >= gap and nums[j-gap] >temp: 
+				nums[j] = nums[j-gap] 
+				j -= gap 
+
+			# put temp (the original nums[i]) in its correct location 
+			nums[j] = temp 
+		gap /= 2
 
     # Create a helper function that will be called recursively
     def _quick_sort(items, low, high):
