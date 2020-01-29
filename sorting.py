@@ -204,7 +204,7 @@ def quick_sort(nums):  # n^2
             nums.swap(j, i)
     # Python program for implementation of Shell Sort 
 
-def shellSort(nums): 
+def shell_sort(nums): 
 
 	# Start with a big gap and then reduce it
 	n = nums.get_len()
