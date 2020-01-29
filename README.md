@@ -13,6 +13,7 @@ Algorithms covered so far:
 | Heap Sort      |   heap_sort    |
 | Merge Sort     |   merge_sort   |
 | Shell Sort     |   shell_sort   |
+| Comb Sort      |   comb_sort    |
 
 # Usage:
 

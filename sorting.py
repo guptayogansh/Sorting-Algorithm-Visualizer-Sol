@@ -213,8 +213,6 @@ def quick_sort(nums):  # n^2
 
     _quick_sort(nums, 0, nums.get_len() - 1)
 
-     
-
 def shell_sort(nums): 
 
 	# Start with a big gap and then reduce it
@@ -244,4 +242,37 @@ def shell_sort(nums):
 			nums.values[j] = temp 
 		gap //= 2
 
-    
+def getNextGap(gap): 
+  
+    # Shrink gap by Shrink factor 
+    gap = (gap * 10)//13
+    if gap < 1: 
+        return 1
+    return gap 
+
+def comb_sort(nums): 
+    n = nums.get_len() 
+  
+    # Initialize gap 
+    gap = n 
+  
+    # Initialize swapped as true to make sure that 
+    # loop runs 
+    swapped = True
+  
+    # Keep running while gap is more than 1 and last 
+    # iteration caused a swap 
+    while gap !=1 or swapped == 1: 
+  
+        # Find next gap 
+        gap = getNextGap(gap) 
+  
+        # Initialize swapped as false so that we can 
+        # check if swap happened or not 
+        swapped = False
+  
+        # Compare all elements with current gap 
+        for i in range(0, n-gap): 
+            if nums.values[i] > nums.values[i+gap]: 
+                nums.values[i], nums.values[i + gap]= nums.values[i + gap], nums.values[i] 
+                swapped = True
